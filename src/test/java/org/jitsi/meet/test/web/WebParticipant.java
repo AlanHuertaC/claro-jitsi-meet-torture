@@ -172,7 +172,7 @@ public class WebParticipant extends Participant<WebDriver>
      * {@inheritDoc}
      */
     @Override
-    public void doJoinConference(JitsiMeetUrl conferenceUrl)
+    public void doJoinConference(JitsiMeetUrl conferenceUrl) throws InterruptedException
     {
         // with chrome v52 we start getting error:
         // "Timed out receiving message from renderer" and
@@ -187,6 +187,9 @@ public class WebParticipant extends Participant<WebDriver>
         try
         {
             driver.get(conferenceUrl.toString());
+            driver.findElement(By.id("name")).sendKeys("Sin miedo al exito");
+            driver.findElement(By.cssSelector(".input-field:nth-child(6) > .btn")).click();
+            TestUtils.waitForElementBy(driver, By.cssSelector("div.video-preview div.toolbox-button"),3);
         }
         catch (org.openqa.selenium.TimeoutException ex)
         {
@@ -205,6 +208,10 @@ public class WebParticipant extends Participant<WebDriver>
         }
 
         MeetUtils.waitForPageToLoad(driver);
+
+    
+        String value = "{\"displayName\":\"test\",\"email\":\"\",\"disableSelfView\":false,\"localFlipX\":true,\"hideShareAudioHelper\":false,\"soundsIncomingMessage\":true,\"soundsParticipantJoined\":true,\"soundsParticipantLeft\":true,\"soundsTalkWhileMuted\":true,\"soundsReactions\":true,\"startAudioOnly\":false,\"startWithAudioMuted\":true,\"startWithVideoMuted\":true,\"userSelectedNotifications\":{\"notify.chatMessages\":true},\"userType\":\"guest\"}";    
+        executeScript("localStorage.setItem(\"features/base/settings\","+ value +")");
 
         if (!isLoadTest)
         {

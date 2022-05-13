@@ -97,8 +97,9 @@ public abstract class AbstractBaseTest<P extends Participant>
      */
     protected AbstractBaseTest()
     {
+        //eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJyb29tIjoiMTY3MjEzMDMyNSIsImNvbnRleHQiOnsiZ3JvdXAiOiJkZWZhdWx0IiwidXNlciI6eyJpZCI6Ikc6OTk5MjA5MTM1MTE5IiwibmFtZSI6IlRlc3QiLCJlbWFpbCI6IiIsInR5cGUiOiJndWVzdCIsImFmZmlsaWF0aW9uIjoibWVtYmVyIn0sImNvbmZlcmVuY2UiOnsicGFzc3dvcmQiOiIifX0sImF1ZCI6InZjY2xhcm8iLCJpc3MiOiJ2Y2NsYXJvIiwic3ViIjoiY29uZmVyZW5jZS5jbGFyb2Nvbm5lY3QuY29tIiwiZXhwIjoxNjUyNDc4ODA5LCJtb2RlcmF0b3IiOmZhbHNlfQ.df742aMc7K0LG2wMK1E5uO5mHzYNkeJVCBaUY2qKZFY
         currentRoomName
-            = "torture" + String.valueOf((int)(Math.random()*1000000));
+            = "iam/c/1672130325";//?jwt=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJyb29tIjoiMTY3MjEzMDMyNSIsImNvbnRleHQiOnsiZ3JvdXAiOiJkZWZhdWx0IiwidXNlciI6eyJpZCI6Ikc6OTk5MjA5MTM1MTE5IiwibmFtZSI6IlRlc3QiLCJlbWFpbCI6IiIsInR5cGUiOiJndWVzdCIsImFmZmlsaWF0aW9uIjoibWVtYmVyIn0sImNvbmZlcmVuY2UiOnsicGFzc3dvcmQiOiIifX0sImF1ZCI6InZjY2xhcm8iLCJpc3MiOiJ2Y2NsYXJvIiwic3ViIjoiY29uZmVyZW5jZS5jbGFyb2Nvbm5lY3QuY29tIiwiZXhwIjoxNjUyNDc4ODA5LCJtb2RlcmF0b3IiOmZhbHNlfQ.df742aMc7K0LG2wMK1E5uO5mHzYNkeJVCBaUY2qKZFY&lang=esMX";//"torture" + String.valueOf((int)(Math.random()*1000000));
         participants = null;
     }
 
@@ -369,7 +370,7 @@ public abstract class AbstractBaseTest<P extends Participant>
     {
         if (this.participants != null)
         {
-            this.participants.cleanup();
+            //this.participants.cleanup();
         }
     }
 

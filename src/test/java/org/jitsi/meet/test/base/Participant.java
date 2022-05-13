@@ -155,7 +155,12 @@ public abstract class Participant<T extends WebDriver>
             return;
         }
 
-        doJoinConference(meetURL);
+        try{
+            doJoinConference(meetURL);
+        }catch(Exception e){
+
+        }
+        
 
         this.joinedRoomName = meetURL.getRoomName();
         this.meetUrl = meetURL;
@@ -169,7 +174,7 @@ public abstract class Participant<T extends WebDriver>
      * the config part. For example:
      * "https://server.com/conference1?login=true#config.debug=true"
      */
-    protected abstract void doJoinConference(JitsiMeetUrl conferenceUrl);
+    protected abstract void doJoinConference(JitsiMeetUrl conferenceUrl) throws InterruptedException;
 
     /**
      * Starts the keep-alive execution.
